@@ -11,3 +11,8 @@
 !main.tf
 !my-react-app/
 !my-react-app/**
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
