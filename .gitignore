@@ -23,3 +23,6 @@
 
 # Ignore .pem keys
 *.pem
+
+# macOS system files
+.DS_Store
