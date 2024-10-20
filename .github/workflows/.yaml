@@ -19,18 +19,44 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./my-react-app
-        run: npm install
+        run: |
+          npm install
+          npm install express
 
       - name: Build React app
         working-directory: ./my-react-app
         run: npm run build
 
+      - name: Debug directory structure
+        run: |
+          echo "Current directory structure:"
+          ls -la
+          echo "my-react-app directory structure:"
+          ls -la my-react-app/
+
       - name: Prepare deployment package
         run: |
-          cp Procfile my-react-app/
-          cd my-react-app
-          cp -r build/* .
-          zip -r ../deploy.zip . -x "*.git*" "node_modules/*"
+          # Create a temporary directory for deployment
+          mkdir deploy_temp
+          
+          # Copy build files
+          cp -r my-react-app/build/* deploy_temp/
+          
+          # Copy necessary server files
+          cp my-react-app/server.js deploy_temp/
+          cp my-react-app/package.json deploy_temp/
+          cp my-react-app/package-lock.json deploy_temp/
+          
+          # Create Procfile in deployment directory
+          echo "web: node server.js" > deploy_temp/Procfile
+          
+          # Create zip from deployment directory
+          cd deploy_temp
+          zip -r ../deploy.zip .
+          cd ..
+          
+          # Debug zip contents
+          unzip -l deploy.zip
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
