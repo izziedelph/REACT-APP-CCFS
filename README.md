@@ -1,4 +1,5 @@
 INTERMEDIATE PROJECT 1 - REACT APP BEANSTALK DEPLOYMENT PROJECT 3
+
 This first of an intermediate project which is no.3 in order following on from CCFS and CCFS-2 will deploy a react app on AWS Elastic Beanstalk. 
  My main focus of this project is the actual application itself allowing AWS Elastic Beanstalk handle server provision (EC2), load-balancing, scaling etc   Step 1: Using any preconfigured react boiler plate template to get a front end ready for deployment (npx create react app /directory, npm build, install, start, serve etc). The app is of node.js  Step 2: Create a AWS Elastic beanstalk with all required configurations and settings. These include the application itself, environment from this app and all settings using terraform rather than the console  The idea is to configure terraform to launch this application with an environment making use of AWS sample application file rather than uploading a zipped version of the react-app in step 1 as this will be done using Github actions through a workflow. Once this sample application is utilised, it then be re-configured to direct to the actual zipped react boiler plate on deployment. 
 
