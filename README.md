@@ -5,7 +5,9 @@ This first of an intermediate project which is no.3 in order following on from C
  
 Step 1: Using any preconfigured react boiler plate template to get a front end ready for deployment (npx create react app /directory, npm build, install, start, serve etc). The app is of node.js  
 
-Step 2: Create a AWS Elastic beanstalk with all required configurations and settings. These include the application itself, environment from this app and all settings using terraform rather than the console  The idea is to configure terraform to launch this application with an environment making use of AWS sample application file rather than uploading a zipped version of the react-app in step 1 as this will be done using Github actions through a workflow. Once this sample application is utilised, it then be re-configured to direct to the actual zipped react boiler plate on deployment. 
+Step 2: Create a AWS Elastic beanstalk with all required configurations and settings. These include the application itself, environment from this app and all settings using terraform rather than the console  .
+
+The idea is to configure terraform to launch this application with an environment making use of AWS sample application file rather than uploading a zipped version of the react-app in step 1 as this will be done using Github actions through a workflow. Once this sample application is utilised, it then be re-configured to direct to the actual zipped react boiler plate on deployment. 
 
 The workflow is key as this will install all dependencies, build app, prepare deployment package, deploy to Elastic Beanstalk and all other processes. 
 
